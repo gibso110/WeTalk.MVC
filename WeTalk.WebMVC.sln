@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.WebMVC", "WeTalk.WebMVC\WeTalk.WebMVC.csproj", "{B1A89C82-D499-4282-A9A9-DE10D997E005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.Data", "WeTalk.Data\WeTalk.Data.csproj", "{2423664C-EA30-40CD-A031-6FC9ED479457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.Models", "WeTalk.Models\WeTalk.Models.csproj", "{F2E5701B-FB83-48E6-B6D3-821490B4BA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.Services", "WeTalk.Services\WeTalk.Services.csproj", "{713AFEBF-758C-4461-BBE4-E449C2001424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.Contracts", "WeTalk.Contracts\WeTalk.Contracts.csproj", "{E0524F75-75D9-4443-B9BE-2743957676B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeTalk.Tests", "WeTalk.Tests\WeTalk.Tests.csproj", "{B37BECCD-8EB6-4433-9EF1-74411FD694CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1A89C82-D499-4282-A9A9-DE10D997E005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A89C82-D499-4282-A9A9-DE10D997E005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A89C82-D499-4282-A9A9-DE10D997E005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A89C82-D499-4282-A9A9-DE10D997E005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2423664C-EA30-40CD-A031-6FC9ED479457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2423664C-EA30-40CD-A031-6FC9ED479457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2423664C-EA30-40CD-A031-6FC9ED479457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2423664C-EA30-40CD-A031-6FC9ED479457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E5701B-FB83-48E6-B6D3-821490B4BA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E5701B-FB83-48E6-B6D3-821490B4BA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E5701B-FB83-48E6-B6D3-821490B4BA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E5701B-FB83-48E6-B6D3-821490B4BA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{713AFEBF-758C-4461-BBE4-E449C2001424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{713AFEBF-758C-4461-BBE4-E449C2001424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{713AFEBF-758C-4461-BBE4-E449C2001424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{713AFEBF-758C-4461-BBE4-E449C2001424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0524F75-75D9-4443-B9BE-2743957676B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0524F75-75D9-4443-B9BE-2743957676B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0524F75-75D9-4443-B9BE-2743957676B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0524F75-75D9-4443-B9BE-2743957676B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B37BECCD-8EB6-4433-9EF1-74411FD694CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B37BECCD-8EB6-4433-9EF1-74411FD694CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B37BECCD-8EB6-4433-9EF1-74411FD694CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B37BECCD-8EB6-4433-9EF1-74411FD694CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {079B600F-D68B-4A42-940A-873227FC099F}
+	EndGlobalSection
+EndGlobal
