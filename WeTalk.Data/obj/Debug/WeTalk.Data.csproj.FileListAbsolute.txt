@@ -14,3 +14,6 @@ C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\bin\Debug\Micr
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.csproj.CopyComplete
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.dll
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.pdb
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.InitialCreate.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.csproj.GenerateResource.cache
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.InitialMigration.resources
