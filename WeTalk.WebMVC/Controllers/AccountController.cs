@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -145,14 +146,19 @@ namespace WeTalk.WebMVC.Controllers
 
         //
         // POST: /Account/Register
+        private ICollection<ApplicationUser> _friends;
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                
+
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, FullName = model.FullName, Friends = model.Friends};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

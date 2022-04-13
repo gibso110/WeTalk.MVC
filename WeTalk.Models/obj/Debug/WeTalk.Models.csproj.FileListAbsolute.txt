@@ -14,3 +14,6 @@ C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\En
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\obj\Debug\WeTalk.Models.csproj.CopyComplete
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\WeTalk.Data.dll
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\WeTalk.Data.pdb
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Models\bin\Debug\WeTalk.Data.dll.config

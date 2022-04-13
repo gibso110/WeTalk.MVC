@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WeTalk.Data;
 
 namespace WeTalk.WebMVC.Models
 {
@@ -79,6 +80,15 @@ namespace WeTalk.WebMVC.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+        [Required]
+        [Display(Name ="Username")]
+        public string UserName { get; set; }
+        [Required]
+        public ICollection<ApplicationUser> Friends = new List<ApplicationUser>();
     }
 
     public class ResetPasswordViewModel

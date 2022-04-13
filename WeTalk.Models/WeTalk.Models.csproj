@@ -57,11 +57,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversationModels\ConversationCreate.cs" />
+    <Compile Include="FriendModels\FriendCreate.cs" />
+    <Compile Include="FriendModels\FriendDetail.cs" />
+    <Compile Include="FriendModels\FriendListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FriendRequestModels\" />
+    <Folder Include="MessageModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeTalk.Data\WeTalk.Data.csproj">
+      <Project>{2423664c-ea30-40cd-a031-6fc9ed479457}</Project>
+      <Name>WeTalk.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

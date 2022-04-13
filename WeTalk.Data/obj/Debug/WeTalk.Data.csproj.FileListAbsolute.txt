@@ -17,3 +17,6 @@ C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTa
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.InitialCreate.resources
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.csproj.GenerateResource.cache
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.InitialMigration.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FriendsModels.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedIdentityModel.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedIdentityModel2.resources

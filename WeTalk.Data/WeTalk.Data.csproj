@@ -70,6 +70,18 @@
     <Compile Include="Migrations\202204060404266_InitialMigration.designer.cs">
       <DependentUpon>202204060404266_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204130131339_FriendsModels.cs" />
+    <Compile Include="Migrations\202204130131339_FriendsModels.designer.cs">
+      <DependentUpon>202204130131339_FriendsModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204130133488_FixedIdentityModel.cs" />
+    <Compile Include="Migrations\202204130133488_FixedIdentityModel.designer.cs">
+      <DependentUpon>202204130133488_FixedIdentityModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204130137563_FixedIdentityModel2.cs" />
+    <Compile Include="Migrations\202204130137563_FixedIdentityModel2.designer.cs">
+      <DependentUpon>202204130137563_FixedIdentityModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +95,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204060404266_InitialMigration.resx">
       <DependentUpon>202204060404266_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204130131339_FriendsModels.resx">
+      <DependentUpon>202204130131339_FriendsModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204130133488_FixedIdentityModel.resx">
+      <DependentUpon>202204130133488_FixedIdentityModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204130137563_FixedIdentityModel2.resx">
+      <DependentUpon>202204130137563_FixedIdentityModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
