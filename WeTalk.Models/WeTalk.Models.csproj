@@ -63,15 +63,16 @@
     <Compile Include="FriendModels\FriendListItem.cs" />
     <Compile Include="FriendRequestModels\CreateFriendRequest.cs" />
     <Compile Include="FriendRequestModels\FriendRequestEdit.cs" />
+    <Compile Include="MessageModels\MessageCreate.cs" />
+    <Compile Include="MessageModels\MessageDisplay.cs" />
+    <Compile Include="MessageModels\MessageEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MessageModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WeTalk.Data\WeTalk.Data.csproj">
       <Project>{2423664c-ea30-40cd-a031-6fc9ed479457}</Project>
