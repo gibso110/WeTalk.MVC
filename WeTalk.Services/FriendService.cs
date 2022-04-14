@@ -19,6 +19,7 @@ namespace WeTalk.Services
             _userId = userId;
         }
 
+        //View all Friends
         public IEnumerable<FriendListItem> GetAllFriends()
         {
             using (var ctx = new ApplicationDbContext())
@@ -35,24 +36,64 @@ namespace WeTalk.Services
             }
         }
 
+        //public IEnumerable<FriendDetail> GetFriendByUsername()
 
-
-        public bool CreateFriend(FriendCreate model)
+        public FriendDetail GetFriendByUsername(string username)
         {
-            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = 
+                    ctx
+                    .Friends
+                    .Single(n=> n.ApplicationUser2.UserName == username);
 
+                return new FriendDetail
+                {
+                    FullName = query.ApplicationUser2.FullName,
+                    UserName = query.ApplicationUser2.UserName,
+                    FriendsSince = query.FriendsSince
+                };
+                
+                
+            }
+        }
+
+        //Create A New Friend
+
+        public bool FriendCreate(FriendCreate model)
+        {
             var entity =
-                new Friend
-                {   
-                    //User1Id = ApplicationUser,
+                new Friend()
+                {
+                    FriendshipId = model.FriendhipId,
+                    User1Id = model.User1Id,
                     User2Id = model.User2Id,
-                    FriendsSince = DateTime.Now
+                    FriendsSince = DateTimeOffset.Now
                 };
 
-            using (var ctx = new ApplicationDbContext()){
+            using (var ctx = new ApplicationDbContext())
+            {
                 ctx.Friends.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+
+        //Delete a friend
+        public bool FriendDelete(int friendId)
+        {
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Friends
+                        .Single(e=> e.FriendshipId == friendId);
+                ctx.Friends.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+               
         }
     }
 }

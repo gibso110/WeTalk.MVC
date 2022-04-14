@@ -61,6 +61,8 @@
     <Compile Include="FriendModels\FriendCreate.cs" />
     <Compile Include="FriendModels\FriendDetail.cs" />
     <Compile Include="FriendModels\FriendListItem.cs" />
+    <Compile Include="FriendRequestModels\CreateFriendRequest.cs" />
+    <Compile Include="FriendRequestModels\FriendRequestEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,7 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FriendRequestModels\" />
     <Folder Include="MessageModels\" />
   </ItemGroup>
   <ItemGroup>

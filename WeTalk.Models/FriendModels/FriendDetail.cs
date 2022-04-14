@@ -9,9 +9,11 @@ namespace WeTalk.Models.FriendModels
 {
     public class FriendDetail
     {
-        public int FriendshipId { get; set; }
-        public string User1Id { get; set; }
-        public string User2Id { get; set; }
-        public DateTimeOffset DateTime { get; set; }
+        [Display(Name="Username")]
+        public string UserName { get; set; }
+        [Display(Name="Full Name")]
+        public string FullName { get; set; }
+        [Display(Name ="Friends Since")]
+        public DateTimeOffset FriendsSince { get; set; }
     }
 }
