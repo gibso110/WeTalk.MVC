@@ -10,6 +10,6 @@ namespace WeTalk.Models.MessageModels
     {
         public int MessageId { get; set; }
         public string MessageContent { get; set; }
-        public DateTimeOffset EdititedTimestamp { get; set; }
+        public DateTimeOffset EditedTimestamp { get; set; }
     }
 }

@@ -18,6 +18,9 @@ namespace WeTalk.Services
         {
             _userId = userId;
         }
+        //view sent friend requests
+
+        //View received friend requests
 
         //View all Friends
         public IEnumerable<FriendListItem> GetAllFriends()

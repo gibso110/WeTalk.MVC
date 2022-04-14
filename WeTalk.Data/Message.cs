@@ -18,7 +18,8 @@ namespace WeTalk.Data
         [Required]
         public string MessageContent { get; set; }
         [Required]
-        public DateTimeOffset MessageDate { get; set; }
+        public DateTimeOffset TimeStamp { get; set; }
+        public DateTimeOffset EditedTimeStamp { get; set; }
         [ForeignKey("Conversation"),Required]
         public int ConversationId { get; set; }
         public virtual Conversation Conversation { get; set; }
