@@ -20,7 +20,7 @@ namespace WeTalk.Services
         }
         //view sent friend requests
 
-        //View received friend requests
+        
 
         //View all Friends
         public IEnumerable<FriendListItem> GetAllFriends()

@@ -22,7 +22,7 @@ namespace WeTalk.Data
         public int FriendId { get; set; }
         public virtual Friend Friend { get; set; }
 
-        IList<Message> User1Message { get; set; }
-        IList<Message> User2Message { get; set; }
+        public IList<Message> User1Message { get; set; }
+        public IList<Message> User2Message { get; set; }
     }
 }

@@ -146,7 +146,7 @@ namespace WeTalk.WebMVC.Controllers
 
         //
         // POST: /Account/Register
-        private ICollection<ApplicationUser> _friends;
+        
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

@@ -58,11 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversationModels\ConversationCreate.cs" />
+    <Compile Include="ConversationModels\ConversationDetail.cs" />
+    <Compile Include="ConversationModels\ConversationEdit.cs" />
+    <Compile Include="ConversationModels\ConversationListItem.cs" />
     <Compile Include="FriendModels\FriendCreate.cs" />
     <Compile Include="FriendModels\FriendDetail.cs" />
     <Compile Include="FriendModels\FriendListItem.cs" />
     <Compile Include="FriendRequestModels\CreateFriendRequest.cs" />
     <Compile Include="FriendRequestModels\FriendRequestEdit.cs" />
+    <Compile Include="FriendRequestModels\FriendRequestListItem.cs" />
     <Compile Include="MessageModels\MessageCreate.cs" />
     <Compile Include="MessageModels\MessageDisplay.cs" />
     <Compile Include="MessageModels\MessageEdit.cs" />

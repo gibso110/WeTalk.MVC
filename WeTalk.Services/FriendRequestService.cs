@@ -16,7 +16,7 @@ namespace WeTalk.Services
 
         public FriendRequestService(string userId)
         {
-            userId = _userId;
+            _userId = userId;
         }
 
         //Create a new friend request
@@ -83,6 +83,23 @@ namespace WeTalk.Services
                 ctx.FriendRequests.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
+            }
+        }
+
+        //Get all friend requests
+
+        public IEnumerable<FriendRequestListItem> GetAllFriendRequests()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.FriendRequests
+                    .Select(n => new FriendRequestListItem()
+                    {
+                        
+                        UserName2 = n.ApplicationUser2.UserName,
+                        User2FullName = n.ApplicationUser2.FullName
+                    });
+                return query.ToArray();
             }
         }
 
