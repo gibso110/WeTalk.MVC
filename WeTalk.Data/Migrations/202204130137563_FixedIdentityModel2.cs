@@ -1,8 +1,7 @@
 ﻿namespace WeTalk.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class FixedIdentityModel2 : DbMigration
     {
         public override void Up()
@@ -11,7 +10,7 @@
             CreateIndex("dbo.ApplicationUser", "ApplicationUser_Id");
             AddForeignKey("dbo.ApplicationUser", "ApplicationUser_Id", "dbo.ApplicationUser", "Id");
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.ApplicationUser", "ApplicationUser_Id", "dbo.ApplicationUser");

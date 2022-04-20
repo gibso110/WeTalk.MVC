@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeTalk.Data;
 using WeTalk.Models.MessageModels;
 
@@ -21,22 +18,22 @@ namespace WeTalk.Services
 
         public bool CreateAMessage(MessageCreate model)
         {
-            var entity = 
+            var entity =
                 new Message()
-            {
-                MessageId = model.MessageId,
-                MessageContent = model.MessageContent,
-                TimeStamp= DateTimeOffset.Now,
-                ConversationId = model.ConversationId
-            };
+                {
+                    MessageId = model.MessageId,
+                    MessageContent = model.MessageContent,
+                    TimeStamp = DateTimeOffset.Now,
+                    ConversationId = model.ConversationId
+                };
 
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ctx.Messages.Add(entity);
 
                 return ctx.SaveChanges() == 1;
             }
-            
+
 
 
         }
@@ -44,7 +41,7 @@ namespace WeTalk.Services
         //Edit a message
         public bool EditAMessage(MessageEdit model)
         {
-           
+
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -54,9 +51,9 @@ namespace WeTalk.Services
                     .Messages
                     .Single(n => n.MessageId == model.MessageId);
 
-                    entity.MessageId = model.MessageId;
-                    entity.MessageContent = model.MessageContent;
-                    entity.EditedTimeStamp = DateTimeOffset.Now;
+                entity.MessageId = model.MessageId;
+                entity.MessageContent = model.MessageContent;
+                entity.EditedTimeStamp = DateTimeOffset.Now;
 
                 return ctx.SaveChanges() == 1;
 
@@ -68,11 +65,11 @@ namespace WeTalk.Services
 
         public bool DeleteAMessage(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                 ctx.FriendRequests
-                    .Single(n=> n.RequestId == id);
+                    .Single(n => n.RequestId == id);
                 ctx.FriendRequests.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

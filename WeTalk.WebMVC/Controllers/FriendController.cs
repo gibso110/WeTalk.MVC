@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using WeTalk.Data;
 using WeTalk.Services;
 
 namespace WeTalk.WebMVC.Controllers
@@ -14,9 +9,9 @@ namespace WeTalk.WebMVC.Controllers
         public FriendService CreateFriendService()
         {
             return new FriendService(User.Identity.GetUserId());
-            
+
         }
-        
+
         // GET: Friend
         public ActionResult Index()
         {

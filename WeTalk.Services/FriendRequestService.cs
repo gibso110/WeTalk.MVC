@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeTalk.Data;
 using WeTalk.Models.FriendRequestModels;
-
+using System;
+using WeTalk.Models.FriendModels;
 
 namespace WeTalk.Services
 {
-    
+
     public class FriendRequestService
     {
+        public FriendService CreateFriendService()
+        {
+            return new FriendService(_userId);
+        }
+
         private readonly string _userId;
 
         public FriendRequestService(string userId)
@@ -21,48 +24,61 @@ namespace WeTalk.Services
 
         //Create a new friend request
 
-        
-        public bool CreateFriendRequest (CreateFriendRequest model)
+
+        public bool CreateFriendRequest(CreateFriendRequest model, string username)
         {
-            
 
-            var entity = new FriendRequest()
+            using (var ctx = new ApplicationDbContext())
             {
-                RequestId = model.RequestId,
-                User1Id = model.User1Id,
-                User2Id = model.User2Id,
+                var query =
+                    ctx
+                    .Friends
+                    .Find(username);
 
-            };
-
-           
-
-                using (var ctx = new ApplicationDbContext())
+                var entity = new FriendRequest()
                 {
-                    ctx.FriendRequests.Add(entity);
-                    return ctx.SaveChanges() == 1;
-                }
-            
+                    RequestId = model.RequestId,
+                    User1Id = _userId,
+                    User2Id = query.User2Id,
+
+                };
+
+                ctx.FriendRequests.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+
         }
 
 
         //Friend request edit
 
-        public bool EditFriendRequest (FriendRequestEdit model)
+        public bool EditFriendRequest(FriendRequestEdit model)
         {
-            var entity = new FriendRequestEdit()
-            {
-                RequestId = model.RequestId,
-                isAccepted = model.isAccepted,
-                isBlocked = model.isBlocked
-            };
 
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
-                ctx.FriendRequests
+                var entity =
+                    ctx
+                    .FriendRequests
                     .Single(n => n.RequestId == model.RequestId);
 
-                    entity.isAccepted = model.isBlocked;
-                    entity.isBlocked = model.isAccepted;
+                entity.IsBlocked = model.IsBlocked;
+                entity.IsAccepted = model.IsAccepted;
+
+                if (model.IsAccepted == true)
+                {
+                   
+
+
+                    var newFriend = new FriendCreate()
+                    {
+                        User1Id = _userId,
+                        User2Id = model.User2Id,
+                     };
+
+
+                    return CreateFriendService().FriendCreate(newFriend);
+                }
 
                 return ctx.SaveChanges() == 1;
             }
@@ -73,13 +89,13 @@ namespace WeTalk.Services
 
         public bool deleteFriendRequest(int requestId)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
 
                 ctx.FriendRequests
-                    .Single(n=> requestId == n.RequestId);
-                
+                    .Single(n => requestId == n.RequestId);
+
                 ctx.FriendRequests.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
@@ -93,9 +109,10 @@ namespace WeTalk.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.FriendRequests
+                    .Where(n => n.User2Id == _userId)
                     .Select(n => new FriendRequestListItem()
                     {
-                        
+
                         UserName2 = n.ApplicationUser2.UserName,
                         User2FullName = n.ApplicationUser2.FullName
                     });

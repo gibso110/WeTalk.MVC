@@ -85,7 +85,7 @@ namespace WeTalk.WebMVC.Models
         [Display(Name = "Full Name")]
         public string FullName { get; set; }
         [Required]
-        [Display(Name ="Username")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
         [Required]
         public ICollection<ApplicationUser> Friends = new List<ApplicationUser>();

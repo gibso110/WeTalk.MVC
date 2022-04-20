@@ -1,8 +1,7 @@
 ﻿namespace WeTalk.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitialMigration : DbMigration
     {
         public override void Up()
@@ -32,7 +31,7 @@
             AddForeignKey("dbo.FriendRequest", "User1Id", "dbo.ApplicationUser", "Id", cascadeDelete: false);
             AddForeignKey("dbo.FriendRequest", "User2Id", "dbo.ApplicationUser", "Id", cascadeDelete: false);
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.FriendRequest", "User2Id", "dbo.ApplicationUser");

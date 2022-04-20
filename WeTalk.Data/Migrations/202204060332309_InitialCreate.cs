@@ -1,8 +1,7 @@
 ﻿namespace WeTalk.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class InitialCreate : DbMigration
     {
         public override void Up()
@@ -10,115 +9,115 @@
             CreateTable(
                 "dbo.Conversation",
                 c => new
-                    {
-                        ConversationId = c.Int(nullable: false, identity: true),
-                    })
+                {
+                    ConversationId = c.Int(nullable: false, identity: true),
+                })
                 .PrimaryKey(t => t.ConversationId);
-            
+
             CreateTable(
                 "dbo.FriendRequest",
                 c => new
-                    {
-                        RequestId = c.Int(nullable: false, identity: true),
-                    })
+                {
+                    RequestId = c.Int(nullable: false, identity: true),
+                })
                 .PrimaryKey(t => t.RequestId);
-            
+
             CreateTable(
                 "dbo.Friend",
                 c => new
-                    {
-                        FriendshipId = c.Int(nullable: false, identity: true),
-                    })
+                {
+                    FriendshipId = c.Int(nullable: false, identity: true),
+                })
                 .PrimaryKey(t => t.FriendshipId);
-            
+
             CreateTable(
                 "dbo.Message",
                 c => new
-                    {
-                        MessageId = c.Int(nullable: false, identity: true),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        MessageContent = c.String(nullable: false),
-                        MessageDate = c.DateTimeOffset(nullable: false, precision: 7),
-                        ConversationId = c.Int(nullable: false),
-                    })
+                {
+                    MessageId = c.Int(nullable: false, identity: true),
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    MessageContent = c.String(nullable: false),
+                    MessageDate = c.DateTimeOffset(nullable: false, precision: 7),
+                    ConversationId = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.MessageId)
                 .ForeignKey("dbo.ApplicationUser", t => t.UserId, cascadeDelete: true)
                 .ForeignKey("dbo.Conversation", t => t.ConversationId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.ConversationId);
-            
+
             CreateTable(
                 "dbo.ApplicationUser",
                 c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Email = c.String(),
-                        EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
-                        SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
-                        PhoneNumberConfirmed = c.Boolean(nullable: false),
-                        TwoFactorEnabled = c.Boolean(nullable: false),
-                        LockoutEndDateUtc = c.DateTime(),
-                        LockoutEnabled = c.Boolean(nullable: false),
-                        AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(),
-                    })
+                {
+                    Id = c.String(nullable: false, maxLength: 128),
+                    Email = c.String(),
+                    EmailConfirmed = c.Boolean(nullable: false),
+                    PasswordHash = c.String(),
+                    SecurityStamp = c.String(),
+                    PhoneNumber = c.String(),
+                    PhoneNumberConfirmed = c.Boolean(nullable: false),
+                    TwoFactorEnabled = c.Boolean(nullable: false),
+                    LockoutEndDateUtc = c.DateTime(),
+                    LockoutEnabled = c.Boolean(nullable: false),
+                    AccessFailedCount = c.Int(nullable: false),
+                    UserName = c.String(),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.IdentityUserClaim",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserId = c.String(),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                        ApplicationUser_Id = c.String(maxLength: 128),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    UserId = c.String(),
+                    ClaimType = c.String(),
+                    ClaimValue = c.String(),
+                    ApplicationUser_Id = c.String(maxLength: 128),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
+
             CreateTable(
                 "dbo.IdentityUserLogin",
                 c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        LoginProvider = c.String(),
-                        ProviderKey = c.String(),
-                        ApplicationUser_Id = c.String(maxLength: 128),
-                    })
+                {
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    LoginProvider = c.String(),
+                    ProviderKey = c.String(),
+                    ApplicationUser_Id = c.String(maxLength: 128),
+                })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
-            
+
             CreateTable(
                 "dbo.IdentityUserRole",
                 c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(),
-                        ApplicationUser_Id = c.String(maxLength: 128),
-                        IdentityRole_Id = c.String(maxLength: 128),
-                    })
+                {
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    RoleId = c.String(),
+                    ApplicationUser_Id = c.String(maxLength: 128),
+                    IdentityRole_Id = c.String(maxLength: 128),
+                })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id);
-            
+
             CreateTable(
                 "dbo.IdentityRole",
                 c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(),
-                    })
+                {
+                    Id = c.String(nullable: false, maxLength: 128),
+                    Name = c.String(),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");

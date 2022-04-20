@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeTalk.Data
 {
@@ -12,7 +8,7 @@ namespace WeTalk.Data
     {
         [Key]
         public int MessageId { get; set; }
-        [ForeignKey("ApplicationUser"),Required]
+        [ForeignKey("ApplicationUser"), Required]
         public string UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
@@ -20,7 +16,7 @@ namespace WeTalk.Data
         [Required]
         public DateTimeOffset TimeStamp { get; set; }
         public DateTimeOffset? EditedTimeStamp { get; set; }
-        [ForeignKey("Conversation"),Required]
+        [ForeignKey("Conversation"), Required]
         public int ConversationId { get; set; }
         public virtual Conversation Conversation { get; set; }
     }

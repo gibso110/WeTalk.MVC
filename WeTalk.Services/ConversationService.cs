@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WeTalk.Data;
 using WeTalk.Models.ConversationModels;
 
@@ -24,7 +21,7 @@ namespace WeTalk.Services
             var entity = new Conversation
             {
                 ConversationId = model.ConversationId,
-                User1Id = model.User1Id,
+                User1Id = _userId,
                 User2Id = model.User2Id,
                 FriendId = model.FriendId,
                 User1Message = model.User1Message,
@@ -62,7 +59,7 @@ namespace WeTalk.Services
         {
             var entity = new ConversationDetail();
 
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query =
 
@@ -81,12 +78,12 @@ namespace WeTalk.Services
         //update a conversation
         public bool UpdateAConversation(ConversationEdit model)
         {
-            using(var ctx =new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Conversations
-                    .Single(n=> n.ConversationId == model.ConversationId);
+                    .Single(n => n.ConversationId == model.ConversationId);
 
                 entity.User1Message = model.User1Messages;
                 entity.User2Message = model.User2Messages;
@@ -99,10 +96,10 @@ namespace WeTalk.Services
 
         public bool DeleteAConversation(int id)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Conversations.Single(n => n.ConversationId == id);
-                   
+
                 ctx.Conversations.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

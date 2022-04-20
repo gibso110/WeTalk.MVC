@@ -240,10 +240,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Friend\Index.cshtml" />
+    <Content Include="Views\Conversation\Index.cshtml" />
+    <Content Include="Views\Conversation\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Conversation\" />
     <Folder Include="Views\FriendRequest\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>

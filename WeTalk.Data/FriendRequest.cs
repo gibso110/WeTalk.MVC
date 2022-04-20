@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeTalk.Data
 {
@@ -15,7 +10,7 @@ namespace WeTalk.Data
         [ForeignKey("ApplicationUser"), Required]
         public string User1Id { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
-        [ForeignKey("ApplicationUser2"),Required]
+        [ForeignKey("ApplicationUser2"), Required]
         public string User2Id { get; set; }
         public virtual ApplicationUser ApplicationUser2 { get; set; }
         [Required]

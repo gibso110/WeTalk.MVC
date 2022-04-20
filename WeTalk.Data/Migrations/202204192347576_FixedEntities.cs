@@ -1,8 +1,7 @@
 ﻿namespace WeTalk.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class FixedEntities : DbMigration
     {
         public override void Up()
@@ -17,7 +16,7 @@
             AddForeignKey("dbo.Message", "Conversation_ConversationId1", "dbo.Conversation", "ConversationId");
             DropColumn("dbo.Message", "MessageDate");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Message", "MessageDate", c => c.DateTimeOffset(nullable: false, precision: 7));
