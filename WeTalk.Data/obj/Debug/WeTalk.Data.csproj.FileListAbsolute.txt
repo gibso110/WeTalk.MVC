@@ -21,3 +21,5 @@ C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTa
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedIdentityModel.resources
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedIdentityModel2.resources
 C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedEntities.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedEntities2.resources
+C:\ElevenFiftyProjects\RedBadgeProjects\WeTalk.WebMVC\WeTalk.Data\obj\Debug\WeTalk.Data.Migrations.FixedEntities3.resources

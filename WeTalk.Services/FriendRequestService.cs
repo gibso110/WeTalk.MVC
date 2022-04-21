@@ -25,21 +25,23 @@ namespace WeTalk.Services
         //Create a new friend request
 
 
-        public bool CreateFriendRequest(CreateFriendRequest model, string username)
+        public bool CreateFriendRequest(FriendRequestCreate model)
         {
 
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx
-                    .Friends
-                    .Find(username);
+                   ctx
+                   .Users
+                   .Single(n => n.UserName == model.Username);
 
                 var entity = new FriendRequest()
                 {
-                    RequestId = model.RequestId,
+
                     User1Id = _userId,
-                    User2Id = query.User2Id,
+                    User2Id = query.Id,
+
+
 
                 };
 
@@ -49,6 +51,7 @@ namespace WeTalk.Services
 
         }
 
+    
 
         //Friend request edit
 
@@ -87,19 +90,29 @@ namespace WeTalk.Services
 
         //Friend Request delete
 
-        public bool deleteFriendRequest(int requestId)
+        public bool deleteFriendRequest(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
 
-                ctx.FriendRequests
-                    .Single(n => requestId == n.RequestId);
+                ctx
+                .FriendRequests
+                 .Find(id);
 
-                ctx.FriendRequests.Remove(entity);
+                if(entity != null)
+                {
+                    ctx.FriendRequests.Remove(entity);
+                    if(ctx.SaveChanges() == 1)
+                    {
+                        return true;
+                    }
+                }
+                return false;
 
-                return ctx.SaveChanges() == 1;
+
             }
+            
         }
 
         //Get all friend requests
@@ -113,11 +126,56 @@ namespace WeTalk.Services
                     .Select(n => new FriendRequestListItem()
                     {
 
-                        UserName2 = n.ApplicationUser2.UserName,
-                        User2FullName = n.ApplicationUser2.FullName
+                        UserName2 = n.ApplicationUser.UserName,
+                        User2FullName = n.ApplicationUser.FullName
                     });
                 return query.ToArray();
             }
+        }
+
+        //Get Friend Request by Id
+
+        public FriendRequestListItem GetFriendRequestById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .FriendRequests
+                    .Single(n => n.RequestId == id);
+                if(query != null) { 
+                return new FriendRequestListItem
+                {
+                    UserName2 = query.ApplicationUser.UserName,
+                    User2FullName = query.ApplicationUser.FullName
+                };
+                }
+                return null;
+            }
+        }
+
+        //Get Friend Request Edit View Model
+
+        public RequestEditDetail RequestEditView(int id)
+        {
+            using(var ctx =new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .FriendRequests
+                    .Single(n => n.RequestId == id);
+
+                if(entity != null)
+                {
+                    return new RequestEditDetail
+                    {
+                        IsAccepted = entity.IsAccepted,
+                        IsBlocked = entity.IsBlocked,
+                    };
+                }
+                return null;
+            }
+
         }
 
     }

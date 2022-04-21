@@ -7,5 +7,6 @@
         public bool IsBlocked { get; set; }
         public string User2Id { get; set; }
 
+
     }
 }
