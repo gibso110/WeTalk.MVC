@@ -80,10 +80,10 @@ namespace WeTalk.WebMVC.Controllers
             var request = service.RequestEditView(id);
             var model = new RequestEditDetail
             {
-                RequestId = request.RequestId,
+                
                 IsAccepted = request.IsAccepted,
                 IsBlocked = request.IsBlocked,
-                User2Id = request.User2Id,
+                
             };
             if(model != null)
             {

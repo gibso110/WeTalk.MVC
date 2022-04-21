@@ -22,7 +22,21 @@ namespace WeTalk.WebMVC.Controllers
             return View(model);
         }
 
-        
+        //Get Conversation by Id
+
+        public ActionResult Details(int id)
+        {
+            var service = CreateConversationService();
+            var model = service.GetConversationById(id);
+
+            return View(model);
+        }
+
+        //Delete Conversation
+
+
+
+        //Create converation delete later
         public ActionResult Create()
         {
             return View();
@@ -45,5 +59,27 @@ namespace WeTalk.WebMVC.Controllers
             ViewData["SaveResult"] = "Invalid Model State";
             return View(model);
         }
+
+        //Conversation edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateConversationService();
+            var request = service.GetConversationById(id);
+            var model = new ConversationDetail
+            {
+                Username1 = request.Username1,
+                Username2 = request.Username2,
+                User2Messages = request.User2Messages,
+                User1Messages = request.User1Messages,
+
+            };
+            if (model != null)
+            {
+                return View(model);
+            }
+            return HttpNotFound();
+        }
+
+        
     }
 }

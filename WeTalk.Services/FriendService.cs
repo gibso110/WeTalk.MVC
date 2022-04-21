@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using WeTalk.Data;
+using WeTalk.Models.ConversationModels;
 using WeTalk.Models.FriendModels;
 
 
 namespace WeTalk.Services
 {
     public class FriendService
-    {
+    { 
+        public ConversationService CreateConversationService()
+        {
+            return new ConversationService(_userId);
+        }
 
         private readonly string _userId;
 
@@ -76,9 +81,7 @@ namespace WeTalk.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-
                 
-
                 ctx.Friends.Add(entity);
                 return ctx.SaveChanges()  == 1;
             }

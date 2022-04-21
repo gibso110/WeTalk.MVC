@@ -248,10 +248,12 @@
     <Content Include="Views\FriendRequest\Delete.cshtml" />
     <Content Include="Views\FriendRequest\Edit.cshtml" />
     <Content Include="Views\Friend\Delete.cshtml" />
+    <Content Include="Views\Conversation\Details.cshtml" />
+    <Content Include="Views\Conversation\Edit.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using WeTalk.Data;
 using WeTalk.Models.MessageModels;
@@ -16,21 +17,36 @@ namespace WeTalk.Services
 
         //Create a message
 
-        public bool CreateAMessage(MessageCreate model)
+        public bool CreateAMessage(MessageCreate model,string username)
         {
-            var entity =
-                new Message()
-                {
-                    MessageId = model.MessageId,
-                    MessageContent = model.MessageContent,
-                    TimeStamp = DateTimeOffset.Now,
-                    ConversationId = model.ConversationId
-                };
+            
 
             using (var ctx = new ApplicationDbContext())
             {
+                var existingConversation =
+                    ctx.Conversations
+                    .Single(n => n.User1Id == _userId && n.ApplicationUser2.UserName == username || n.User2Id == _userId & n.ApplicationUser.UserName == username);
+                
+                var entity =
+                   new Message()
+                   {
+                       MessageId = model.MessageId,
+                       MessageContent = model.MessageContent,
+                       TimeStamp = DateTimeOffset.Now,
+                       ConversationId = existingConversation.ConversationId
+                   };
+                
                 ctx.Messages.Add(entity);
-
+                var query =
+                    ctx.Conversations
+                    .Find(model.ConversationId);
+                if(query.User1Id == _userId)
+                {
+                    query.User1Message.Add(entity);
+                }
+                else if(query.User2Id == _userId){
+                    query.User2Message.Add(entity);
+                }
                 return ctx.SaveChanges() == 1;
             }
 
@@ -59,6 +75,7 @@ namespace WeTalk.Services
 
             }
         }
+        
 
 
         //Delete a message

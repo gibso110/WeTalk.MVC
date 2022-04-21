@@ -44,8 +44,10 @@ namespace WeTalk.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.Conversations
+                    .Where(x => x.User1Id == _userId || x.User2Id == _userId)
                     .Select(n => new ConversationListItem()
                     {
+                       
                         UserName2 = n.ApplicationUser2.UserName,
                         User1Messages = n.User1Message,
                         User2Messages = n.User2Message
@@ -65,7 +67,7 @@ namespace WeTalk.Services
 
                 ctx.Conversations
                 .Single(n => n.ConversationId == id);
-
+                if(query.User1Id == _userId) { 
                 return new ConversationDetail()
                 {
                     Username1 = query.ApplicationUser.UserName,
@@ -73,6 +75,17 @@ namespace WeTalk.Services
                     User1Messages = query.User1Message,
                     User2Messages = query.User2Message
                 };
+                }
+                else
+                {
+                    return new ConversationDetail()
+                    {
+                        Username1 = query.ApplicationUser2.UserName,
+                        Username2 = query.ApplicationUser.UserName,
+                        User1Messages = query.User2Message,
+                        User2Messages = query.User1Message
+                    };
+                }
             }
         }
         //update a conversation

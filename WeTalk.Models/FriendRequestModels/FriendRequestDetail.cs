@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeTalk.Data;
 
 namespace WeTalk.Models.FriendRequestModels
 {
@@ -19,5 +20,9 @@ namespace WeTalk.Models.FriendRequestModels
         public bool IsAccepted { get; set; }
         [Display(Name = "Is Blocked")]
         public bool IsBlocked { get; set; }
+        [Display(Name ="User 1 Messages:")]
+        public IList<Message> User1Messages { get; set; }
+        public IList<Message> User2Messages { get; set; }
     }
+
 }

@@ -4,6 +4,7 @@ using WeTalk.Data;
 using WeTalk.Models.FriendRequestModels;
 using System;
 using WeTalk.Models.FriendModels;
+using WeTalk.Models.ConversationModels;
 
 namespace WeTalk.Services
 {
@@ -13,6 +14,11 @@ namespace WeTalk.Services
         public FriendService CreateFriendService()
         {
             return new FriendService(_userId);
+        }
+
+        public ConversationService CreateConversationService()
+        {
+            return new ConversationService(_userId);
         }
 
         private readonly string _userId;
@@ -34,18 +40,15 @@ namespace WeTalk.Services
                    ctx
                    .Users
                    .Single(n => n.UserName == model.Username);
+                var entity =
+                    new FriendRequest
+                    {
+                        User1Id = _userId,
+                        User2Id = query.Id,
 
-                var entity = new FriendRequest()
-                {
-
-                    User1Id = _userId,
-                    User2Id = query.Id,
-
-
-
-                };
-
+                    };
                 ctx.FriendRequests.Add(entity);
+
                 return ctx.SaveChanges() == 1;
             }
 
@@ -80,7 +83,32 @@ namespace WeTalk.Services
                      };
 
 
-                    return CreateFriendService().FriendCreate(newFriend);
+                    CreateFriendService().FriendCreate(newFriend);
+
+                    var query =
+                        ctx.Friends
+                        .Single(n => n.User1Id == _userId && n.User2Id == model.User2Id);
+
+                    var newConversation = new ConversationCreate()
+                    {
+                        User1Id = _userId,
+                        User2Id = query.User2Id,
+                        FriendId = query.FriendshipId
+                    };
+
+                    var user1 =
+                        ctx
+                        .Users
+                        .Find(_userId);
+                    var user2 =
+                        ctx
+                        .Users
+                        .Find(model.User2Id);
+
+                    user1.Friends.Add(user2);
+                    user2.Friends.Add(user1);
+
+                    return CreateConversationService().CreateConversation(newConversation);
                 }
 
                 return ctx.SaveChanges() == 1;
