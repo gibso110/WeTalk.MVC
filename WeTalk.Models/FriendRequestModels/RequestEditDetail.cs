@@ -14,5 +14,9 @@ namespace WeTalk.Models.FriendRequestModels
         [Display(Name = "Block this request?")]
         public bool IsBlocked { get; set; }
 
+        public int RequestId { get; set; }
+
+        public string User2Id { get; set; }
+
     }
 }

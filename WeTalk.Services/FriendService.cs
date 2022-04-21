@@ -80,7 +80,7 @@ namespace WeTalk.Services
                 
 
                 ctx.Friends.Add(entity);
-                return ctx.SaveChanges() == 1;
+                return ctx.SaveChanges()  == 1;
             }
         }
 
@@ -100,6 +100,25 @@ namespace WeTalk.Services
                 return ctx.SaveChanges() == 1;
             }
 
+        }
+
+        //get friend by id
+
+        public FriendDetail GetFriendById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Friends
+                    .Single(e => e.FriendshipId == id);
+
+                return new FriendDetail()
+                {
+                    UserName = entity.ApplicationUser2.UserName,
+                    FriendsSince = entity.FriendsSince,
+                    FullName = entity.ApplicationUser2.FullName
+                };
+            }
         }
     }
 }

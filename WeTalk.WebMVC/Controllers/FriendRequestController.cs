@@ -80,14 +80,41 @@ namespace WeTalk.WebMVC.Controllers
             var request = service.RequestEditView(id);
             var model = new RequestEditDetail
             {
+                RequestId = request.RequestId,
                 IsAccepted = request.IsAccepted,
                 IsBlocked = request.IsBlocked,
+                User2Id = request.User2Id,
             };
             if(model != null)
             {
                 return View(model);
             }
             return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, RequestEditDetail model)
+        {
+            model.RequestId = id;
+            if(!ModelState.IsValid) return View(model);
+
+            if(model.RequestId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateFriendRequestService();
+
+            if (service.EditFriendRequest(model))
+            {
+                TempData["SaveResult"] = "The friend request was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The friend request could not be updated.");
+            return View(model);
         }
 
        

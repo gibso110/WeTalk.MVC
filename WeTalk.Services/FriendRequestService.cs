@@ -55,7 +55,7 @@ namespace WeTalk.Services
 
         //Friend request edit
 
-        public bool EditFriendRequest(FriendRequestEdit model)
+        public bool EditFriendRequest(RequestEditDetail model)
         {
 
             using (var ctx = new ApplicationDbContext())
@@ -64,7 +64,7 @@ namespace WeTalk.Services
                     ctx
                     .FriendRequests
                     .Single(n => n.RequestId == model.RequestId);
-
+                entity.RequestId = model.RequestId;
                 entity.IsBlocked = model.IsBlocked;
                 entity.IsAccepted = model.IsAccepted;
 
@@ -169,6 +169,8 @@ namespace WeTalk.Services
                 {
                     return new RequestEditDetail
                     {
+                        RequestId = entity.RequestId,
+                        User2Id = entity.User1Id,
                         IsAccepted = entity.IsAccepted,
                         IsBlocked = entity.IsBlocked,
                     };

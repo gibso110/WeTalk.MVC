@@ -247,6 +247,7 @@
     <Content Include="Views\FriendRequest\Index.cshtml" />
     <Content Include="Views\FriendRequest\Delete.cshtml" />
     <Content Include="Views\FriendRequest\Edit.cshtml" />
+    <Content Include="Views\Friend\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,5 +19,38 @@ namespace WeTalk.WebMVC.Controllers
             var model = service.GetAllFriends();
             return View(model);
         }
+
+        //Delete Friend
+
+        public ActionResult Delete(int id)
+        {
+            var service = CreateFriendService();
+            var model = service.GetFriendById(id);
+
+            if (model != null)
+            {
+                return View(model);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public ActionResult DeleteRequest(int id)
+        {
+            var service = CreateFriendService();
+            if (service.FriendDelete(id))
+            {
+                ViewData["SaveResult"] = "The friend has been deleted.";
+            }
+            else
+            {
+                ViewData["SaveResult"] = "The friend could not be deleted";
+            }
+            return Redirect("Index");
+        }
+
+
     }
 }
