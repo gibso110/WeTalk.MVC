@@ -7,13 +7,13 @@ namespace WeTalk.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class FixedIdentityModel : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedIdentityModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204130133488_FixedIdentityModel"; }
+            get { return "202204220103256_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

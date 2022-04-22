@@ -1,0 +1,75 @@
+﻿@model WeTalk.Models.ConversationModels.ConversationDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConversationDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Username1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username2)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username1)
+        </th>
+        <th>
+          
+        </th>
+        <th>
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserMessages)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.UserMessages)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EditedTimeStamp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

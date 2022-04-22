@@ -96,17 +96,7 @@ namespace WeTalk.Services
                         FriendId = query.FriendshipId
                     };
 
-                    var user1 =
-                        ctx
-                        .Users
-                        .Find(_userId);
-                    var user2 =
-                        ctx
-                        .Users
-                        .Find(model.User2Id);
-
-                    user1.Friends.Add(user2);
-                    user2.Friends.Add(user1);
+                    
 
                     return CreateConversationService().CreateConversation(newConversation);
                 }

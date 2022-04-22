@@ -62,37 +62,9 @@
     <Compile Include="FriendRequest.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Migrations\202204060332309_InitialCreate.cs" />
-    <Compile Include="Migrations\202204060332309_InitialCreate.designer.cs">
-      <DependentUpon>202204060332309_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204060404266_InitialMigration.cs" />
-    <Compile Include="Migrations\202204060404266_InitialMigration.designer.cs">
-      <DependentUpon>202204060404266_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204130131339_FriendsModels.cs" />
-    <Compile Include="Migrations\202204130131339_FriendsModels.designer.cs">
-      <DependentUpon>202204130131339_FriendsModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204130133488_FixedIdentityModel.cs" />
-    <Compile Include="Migrations\202204130133488_FixedIdentityModel.designer.cs">
-      <DependentUpon>202204130133488_FixedIdentityModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204130137563_FixedIdentityModel2.cs" />
-    <Compile Include="Migrations\202204130137563_FixedIdentityModel2.designer.cs">
-      <DependentUpon>202204130137563_FixedIdentityModel2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204192347576_FixedEntities.cs" />
-    <Compile Include="Migrations\202204192347576_FixedEntities.designer.cs">
-      <DependentUpon>202204192347576_FixedEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204202237598_FixedEntities2.cs" />
-    <Compile Include="Migrations\202204202237598_FixedEntities2.designer.cs">
-      <DependentUpon>202204202237598_FixedEntities2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202204210247557_FixedEntities3.cs" />
-    <Compile Include="Migrations\202204210247557_FixedEntities3.designer.cs">
-      <DependentUpon>202204210247557_FixedEntities3.cs</DependentUpon>
+    <Compile Include="Migrations\202204220103256_InitialMigration.cs" />
+    <Compile Include="Migrations\202204220103256_InitialMigration.designer.cs">
+      <DependentUpon>202204220103256_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,29 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204060332309_InitialCreate.resx">
-      <DependentUpon>202204060332309_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204060404266_InitialMigration.resx">
-      <DependentUpon>202204060404266_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204130131339_FriendsModels.resx">
-      <DependentUpon>202204130131339_FriendsModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204130133488_FixedIdentityModel.resx">
-      <DependentUpon>202204130133488_FixedIdentityModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204130137563_FixedIdentityModel2.resx">
-      <DependentUpon>202204130137563_FixedIdentityModel2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204192347576_FixedEntities.resx">
-      <DependentUpon>202204192347576_FixedEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204202237598_FixedEntities2.resx">
-      <DependentUpon>202204202237598_FixedEntities2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202204210247557_FixedEntities3.resx">
-      <DependentUpon>202204210247557_FixedEntities3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204220103256_InitialMigration.resx">
+      <DependentUpon>202204220103256_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
