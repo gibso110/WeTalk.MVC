@@ -44,7 +44,63 @@ namespace WeTalk.WebMVC.Controllers
         }
 
         //message edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateMessageService();
+            var model = service.GetMessageById(id);
+
+            if (model != null)
+            {
+                return View(model);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Edit")]
+        public ActionResult EditRequest(MessageEdit model)
+        {
+            var service = CreateMessageService();
+            if (service.EditAMessage(model))
+            {
+                TempData["SaveResult"] = "The message has been edited.";
+            }
+            else
+            {
+                TempData["SaveResult"] = "The message could not be edited";
+            }
+            return RedirectToAction("Index", "Conversation");
+        }
 
         //message delete
+        public ActionResult Delete(int id)
+        {
+            var service = CreateMessageService();
+            var model = service.GetMessageById(id);
+
+            if (model != null)
+            {
+                return View(model);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public ActionResult DeleteRequest(int id)
+        {
+            var service = CreateMessageService();
+            if (service.DeleteAMessage(id))
+            {
+                TempData["SaveResult"] = "The message has been deleted.";
+            }
+            else
+            {
+                TempData["SaveResult"] = "The message could not be deleted";
+            }
+            return RedirectToAction("Index","Conversation");
+        }
     }
 }

@@ -95,5 +95,27 @@ namespace WeTalk.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        //Get message by id
+        public MessageDisplay GetMessageById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Messages
+                    .Single(n => n.MessageId == id);
+                if (query != null)
+                {
+                    return new MessageDisplay
+                    {
+                        UserName = query.ApplicationUser.UserName,
+                        MessageContent = query.MessageContent,
+                        MessageId = query.MessageId
+                    };
+                }
+                return null;
+            }
+        }
     }
 }

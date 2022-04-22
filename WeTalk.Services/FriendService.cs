@@ -36,7 +36,8 @@ namespace WeTalk.Services
                     {
                         UserName1 = n.ApplicationUser.UserName,
                         UserName2 = n.ApplicationUser2.UserName,
-                        FriendsSince = n.FriendsSince
+                        FriendsSince = n.FriendsSince,
+                        FriendId = n.FriendshipId
                     });
                 return query.ToArray();
             }
@@ -120,6 +121,7 @@ namespace WeTalk.Services
                     UserName = entity.ApplicationUser2.UserName,
                     FriendsSince = entity.FriendsSince,
                     FullName = entity.ApplicationUser2.FullName
+
                 };
             }
         }

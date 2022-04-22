@@ -6,9 +6,9 @@
 <h2>My Friends</h2>
 
 <p>
-    @Html.ActionLink("Send A Friend Request","UpdateLater")
+    @Html.ActionLink("Send A Friend Request","Create", "Message")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.UserName1)
@@ -17,6 +17,7 @@
             @Html.DisplayNameFor(model => model.UserName2)
         </th>
         <th>@Html.DisplayNameFor(model => model.FriendsSince)</th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model)
@@ -30,8 +31,7 @@
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.FriendsSince)</td>
                     <td>
-                        @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */})
-                        @Html.ActionLink("Delete","Delete", new {/* id=item.PrimaryKey */})
+                        @Html.ActionLink("Delete","Delete", new {id=item.FriendId })
                     </td>
                 </tr>
 }
