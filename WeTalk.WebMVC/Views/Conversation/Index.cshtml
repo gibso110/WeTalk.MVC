@@ -4,13 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Conversations</h2>
+<h2>Your Conversations</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add A New Friend", "Create","FriendRequest")
 </p>
 <table class="table">
     <tr>
+        
         <th>
             @Html.DisplayNameFor(model => model.UserName2)
         </th>
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.UserName2)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            |
+            @Html.ActionLink("View Conversation", "Details", new { id = item.ConversationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ConversationId })
         </td>
     </tr>
 }

@@ -4,6 +4,7 @@ using WeTalk.Services;
 
 namespace WeTalk.WebMVC.Controllers
 {
+    [Authorize]
     public class FriendController : Controller
     {
         public FriendService CreateFriendService()

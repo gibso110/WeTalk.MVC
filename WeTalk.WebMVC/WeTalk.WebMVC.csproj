@@ -247,8 +247,6 @@
     <Content Include="Views\FriendRequest\Index.cshtml" />
     <Content Include="Views\FriendRequest\Delete.cshtml" />
     <Content Include="Views\Friend\Delete.cshtml" />
-    <Content Include="Views\Conversation\OLDDetails.cshtml" />
-    <Content Include="Views\Conversation\Edit.cshtml" />
     <Content Include="Views\Message\Create.cshtml" />
     <Content Include="Views\FriendRequest\Edit.cshtml" />
     <Content Include="Views\Conversation\Details.cshtml" />

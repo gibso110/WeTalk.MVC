@@ -9,5 +9,6 @@ namespace WeTalk.Models.ConversationModels
         [Display(Name="Username")]
         public string UserName2 { get; set; }
         public ICollection<Message> UserMessages { get; set; }
+        public int ConversationId { get; set; }
     }
 }

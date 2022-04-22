@@ -47,7 +47,7 @@ namespace WeTalk.Services
                     .Where(x => x.User1Id == _userId || x.User2Id == _userId)
                     .Select(n => new ConversationListItem()
                     {
-                       
+                       ConversationId= n.ConversationId,
                         UserName2 = n.ApplicationUser2.UserName,
                         UserMessages = n.UserMessages,
                         

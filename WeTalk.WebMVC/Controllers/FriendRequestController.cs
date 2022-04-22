@@ -111,7 +111,7 @@ namespace WeTalk.WebMVC.Controllers
             if (service.EditFriendRequest(model))
             {
                 TempData["SaveResult"] = "The friend request was updated.";
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","FriendContoller");
             }
 
             ModelState.AddModelError("", "The friend request could not be updated.");

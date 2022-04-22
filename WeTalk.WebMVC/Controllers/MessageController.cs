@@ -5,6 +5,7 @@ using WeTalk.Services;
 
 namespace WeTalk.WebMVC.Controllers
 {
+    [Authorize]
     public class MessageController : Controller
     {
         public MessageService CreateMessageService()
@@ -34,12 +35,16 @@ namespace WeTalk.WebMVC.Controllers
                 if (service.CreateAMessage(model))
                 {
                     ViewData["SaveResult"] = "Your Message has been sent";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Conversation");
                 }
                 ViewData["SaveResult"] = "Sorry, this message could not be sent";
             }
             ViewData["SaveResult"] = "Invalid Model State";
             return View(model);
         }
+
+        //message edit
+
+        //message delete
     }
 }
