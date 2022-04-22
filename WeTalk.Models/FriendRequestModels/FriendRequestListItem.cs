@@ -8,6 +8,7 @@ namespace WeTalk.Models.FriendRequestModels
         public string UserName2 { get; set; }
         [Display(Name = "Full Name:")]
         public string User2FullName { get; set; }
+        public int FriendRequestId { get; set; }
 
     }
 }

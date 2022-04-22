@@ -145,7 +145,8 @@ namespace WeTalk.Services
                     {
 
                         UserName2 = n.ApplicationUser.UserName,
-                        User2FullName = n.ApplicationUser.FullName
+                        User2FullName = n.ApplicationUser.FullName,
+                        FriendRequestId = n.RequestId
                     });
                 return query.ToArray();
             }

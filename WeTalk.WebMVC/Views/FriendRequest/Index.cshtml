@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Your Friend Requests</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Send a friend request", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,9 +29,8 @@
             @Html.DisplayFor(modelItem => item.User2FullName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("View Request", "Edit", new { id=item.FriendRequestId}) |
+            @Html.ActionLink("Delete Friend Request", "Delete", new { id = item.FriendRequestId})
         </td>
     </tr>
 }
