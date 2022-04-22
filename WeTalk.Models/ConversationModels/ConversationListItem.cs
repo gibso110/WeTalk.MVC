@@ -8,7 +8,6 @@ namespace WeTalk.Models.ConversationModels
     {
         [Display(Name="Username")]
         public string UserName2 { get; set; }
-        public IList<Message> User1Messages { get; set; }
-        public IList<Message> User2Messages { get; set; }
+        public ICollection<Message> UserMessages { get; set; }
     }
 }

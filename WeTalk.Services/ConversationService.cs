@@ -24,8 +24,8 @@ namespace WeTalk.Services
                 User1Id = _userId,
                 User2Id = model.User2Id,
                 FriendId = model.FriendId,
-                User1Message = model.User1Message,
-                User2Message = model.User2Message,
+                UserMessages = model.UserMessages
+                
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -49,8 +49,8 @@ namespace WeTalk.Services
                     {
                        
                         UserName2 = n.ApplicationUser2.UserName,
-                        User1Messages = n.User1Message,
-                        User2Messages = n.User2Message
+                        UserMessages = n.UserMessages,
+                        
                     });
                 return query.ToArray();
             }
@@ -72,8 +72,8 @@ namespace WeTalk.Services
                 {
                     Username1 = query.ApplicationUser.UserName,
                     Username2 = query.ApplicationUser2.UserName,
-                    User1Messages = query.User1Message,
-                    User2Messages = query.User2Message
+                    UserMessages = query.UserMessages,
+                    
                 };
                 }
                 else
@@ -82,8 +82,8 @@ namespace WeTalk.Services
                     {
                         Username1 = query.ApplicationUser2.UserName,
                         Username2 = query.ApplicationUser.UserName,
-                        User1Messages = query.User2Message,
-                        User2Messages = query.User1Message
+                        UserMessages = query.UserMessages,
+                        
                     };
                 }
             }
@@ -98,8 +98,8 @@ namespace WeTalk.Services
                     .Conversations
                     .Single(n => n.ConversationId == model.ConversationId);
 
-                entity.User1Message = model.User1Messages;
-                entity.User2Message = model.User2Messages;
+                entity.UserMessages = model.UserMessages;
+                entity.UserMessages = model.UserMessages;
 
                 return ctx.SaveChanges() == 1;
             }

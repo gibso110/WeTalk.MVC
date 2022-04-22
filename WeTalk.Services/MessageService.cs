@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using WeTalk.Data;
 using WeTalk.Models.MessageModels;
@@ -17,7 +18,7 @@ namespace WeTalk.Services
 
         //Create a message
 
-        public bool CreateAMessage(MessageCreate model,string username)
+        public bool CreateAMessage(MessageCreate model)
         {
             
 
@@ -25,11 +26,12 @@ namespace WeTalk.Services
             {
                 var existingConversation =
                     ctx.Conversations
-                    .Single(n => n.User1Id == _userId && n.ApplicationUser2.UserName == username || n.User2Id == _userId & n.ApplicationUser.UserName == username);
+                    .Single(n => n.User1Id == _userId && n.ApplicationUser2.UserName == model.Username || n.User2Id == _userId & n.ApplicationUser.UserName == model.Username);
                 
                 var entity =
                    new Message()
                    {
+                       UserId = _userId,
                        MessageId = model.MessageId,
                        MessageContent = model.MessageContent,
                        TimeStamp = DateTimeOffset.Now,
@@ -37,22 +39,23 @@ namespace WeTalk.Services
                    };
                 
                 ctx.Messages.Add(entity);
-                var query =
-                    ctx.Conversations
-                    .Find(model.ConversationId);
-                if(query.User1Id == _userId)
-                {
-                    query.User1Message.Add(entity);
-                }
-                else if(query.User2Id == _userId){
-                    query.User2Message.Add(entity);
-                }
-                return ctx.SaveChanges() == 1;
+                var savechange =
+                    ctx.SaveChanges();
+
+                existingConversation =
+                     ctx.Conversations
+                     .Single(n => n.User1Id == _userId && n.ApplicationUser2.UserName == model.Username || n.User2Id == _userId & n.ApplicationUser.UserName == model.Username);
+
+
+              
             }
+            return true;
 
 
 
         }
+        
+
 
         //Edit a message
         public bool EditAMessage(MessageEdit model)

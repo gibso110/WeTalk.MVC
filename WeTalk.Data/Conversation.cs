@@ -18,7 +18,7 @@ namespace WeTalk.Data
         public int FriendId { get; set; }
         public virtual Friend Friend { get; set; }
 
-        public IList<Message> User1Message { get; set; }
-        public IList<Message> User2Message { get; set; }
+        public virtual ICollection<Message> UserMessages { get; set; }
+        
     }
 }

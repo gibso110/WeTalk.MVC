@@ -69,8 +69,8 @@ namespace WeTalk.WebMVC.Controllers
             {
                 Username1 = request.Username1,
                 Username2 = request.Username2,
-                User2Messages = request.User2Messages,
-                User1Messages = request.User1Messages,
+                UserMessages = request.UserMessages,
+                
 
             };
             if (model != null)
