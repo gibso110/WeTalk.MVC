@@ -1,0 +1,44 @@
+﻿@model WeTalk.Models.MessageModels.MessageDisplay
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Message</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MessageDisplay</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageContent)
+        </dd>
+
+        <dd>
+            @Html.HiddenFor(model => model.MessageId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Back to Conversations", "Index", "Conversation")
+        </div>
+    }
+</div>

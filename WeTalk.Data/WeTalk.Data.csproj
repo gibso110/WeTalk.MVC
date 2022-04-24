@@ -62,9 +62,9 @@
     <Compile Include="FriendRequest.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Message.cs" />
-    <Compile Include="Migrations\202204220103256_InitialMigration.cs" />
-    <Compile Include="Migrations\202204220103256_InitialMigration.designer.cs">
-      <DependentUpon>202204220103256_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202204222255058_InitialMigration.cs" />
+    <Compile Include="Migrations\202204222255058_InitialMigration.designer.cs">
+      <DependentUpon>202204222255058_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204220103256_InitialMigration.resx">
-      <DependentUpon>202204220103256_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204222255058_InitialMigration.resx">
+      <DependentUpon>202204222255058_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

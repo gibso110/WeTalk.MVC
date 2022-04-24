@@ -17,6 +17,8 @@ namespace WeTalk.Services
 
         private readonly string _userId;
 
+        
+
         public FriendService(string userId)
         {
             _userId = userId;
@@ -30,8 +32,10 @@ namespace WeTalk.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+
+
                 var query = ctx.Friends
-                    .Where(n => n.User1Id == _userId)
+                    .Where(n => n.User1Id == _userId || n.User2Id == _userId)
                     .Select(n => new FriendListItem()
                     {
                         UserName1 = n.ApplicationUser.UserName,

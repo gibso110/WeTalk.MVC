@@ -5,9 +5,9 @@ namespace WeTalk.Models.FriendModels
 {
     public class FriendListItem
     {
-        [Display(Name = "You")]
+        [Display(Name = "Friend 1")]
         public string UserName1 { get; set; }
-        [Display(Name = "Friend's Username")]
+        [Display(Name = "Friend 2")]
         public string UserName2 { get; set; }
         [Display(Name = "Friends Since")]
         public DateTimeOffset FriendsSince { get; set; }

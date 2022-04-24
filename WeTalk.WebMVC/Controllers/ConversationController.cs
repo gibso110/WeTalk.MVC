@@ -36,28 +36,34 @@ namespace WeTalk.WebMVC.Controllers
 
 
 
-        //Create converation delete later
-        public ActionResult Create()
+        //message delete
+        public ActionResult Delete(int id)
         {
-            return View();
+            var service = CreateConversationService();
+            var model = service.GetConversationById(id);
+
+            if (model != null)
+            {
+                return View(model);
+            }
+            return HttpNotFound();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ConversationCreate model)
+        [ActionName("Delete")]
+        public ActionResult DeleteRequest(int id)
         {
-            if (!ModelState.IsValid)
+            var service = CreateConversationService();
+            if (service.DeleteAConversation(id))
             {
-                var service = CreateConversationService();
-                if (service.CreateConversation(model))
-                {
-                    ViewData["SaveResult"] = "A new conversation has been created";
-                        return RedirectToAction("Index");
-                }
-                ViewData["SaveResult"] = "This conversation could not be created or the conversation already exists";
+                TempData["SaveResult"] = "The conversation has been deleted.";
             }
-            ViewData["SaveResult"] = "Invalid Model State";
-            return View(model);
+            else
+            {
+                TempData["SaveResult"] = "The conversation could not be deleted";
+            }
+            return RedirectToAction("Index", "Conversation");
         }
 
         //Conversation edit
